@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "landing page for natours company",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danogo/Natours.git"
+  },
+  "author": "Daniel Ogonowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Danogo/Natours/issues"
+  },
+  "homepage": "https://github.com/Danogo/Natours#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  }
+}
