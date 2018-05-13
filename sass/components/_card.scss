@@ -1,0 +1,55 @@
+.card {
+    //perspective need to be set on parent of rotating element
+    -moz-perspective: 150rem;
+    perspective: 150rem;
+    position: relative;
+    //set height because the children are positioned absolutely therefore are taken out of natural layout flow
+    height: 52rem;
+
+    &__side {
+        color: #fff;
+        font-size: 3rem;
+        height: 52rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        //hide back side of a card side
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {
+            //back side need to be already flipped before we rotate whole card
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+        }
+    }
+
+    //we rotate just a front side by -180deg, cuz back side is already rotated
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+    // back side need to rotate back to 0
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+}
