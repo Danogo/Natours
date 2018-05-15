@@ -17,7 +17,7 @@
         //hide back side of a card side
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        border-radius: 3px;
+        border-radius: $border-radius-small;
         overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
