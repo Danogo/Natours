@@ -45,7 +45,7 @@
     } 
 
     &__list {
-        @include center-hor-and-ver;
+        @include absCenter;
         list-style: none;
         text-align: center;
     } 

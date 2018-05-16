@@ -11,10 +11,11 @@
         position: relative;
         font-size: $font-size-default;
         backface-visibility: hidden;
-
+        //fix to fuzzy text bug on btn hover
+        transform: translateZ(0);
         //reset for the <button> element
         border: none;
-        cursor: pointer;
+        cursor: pointer;  
     }
 
     &:hover {
@@ -61,12 +62,14 @@
         border-radius: 10rem;
         top: 0;
         left: 0;
+        //this z-index with transition all makes bug which causes other elements to shake or blur
         z-index: -1;
         transition: all .4s;
     }
 
     &--animated {
         animation: moveTop .5s ease-out .75s backwards;
+        animation-fill-mode: backwards;
     }
 }
 

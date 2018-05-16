@@ -136,7 +136,7 @@
     //BACK SIDE STYLING
     //call to action
     &__cta {
-        @include center-hor-and-ver;
+        @include absCenter;
         text-align: center;
         width: 90%;
     }

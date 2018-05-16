@@ -362,6 +362,39 @@
             </div>
         </div>
     </footer>
+
+    <div class="popup">
+        <div class="popup__content">
+            <div class="popup__left">
+                <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+                <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+            </div>
+            <div class="popup__right">
+                <div class="popup__h2-box">
+                    <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+                </div>
+                <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+                <p class="popup__text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate delectus necessitatibus consequatur molestiae porro non, ducimus at quidem illo iusto impedit architecto facilis dolore maiores, exercitationem reprehenderit, tenetur suscipit placeat quos voluptatibus eius laboriosam eaque. Libero, illum architecto beatae iste, voluptas reiciendis, facere eius reprehenderit facilis esse molestias assumenda dolores quod ad illo fuga iusto minima officiis odit autem natus cupiditate! Blanditiis facere, doloribus dolorem impedit consectetur cumque. Suscipit, quas tempora delectus quaerat ducimus laborum!
+                </p>
+                <a href="#" class="btn btn--green">Book now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        (function () {
+            // cache DOM element
+            const nav = document.querySelector('.navigation');
+            const navCheck = nav.querySelector('#navi-toggle');
+            const navLinks = nav.querySelectorAll('.navigation__link');
+            
+            // on link click, toggle checkbox 'checked' state
+            navLinks.forEach(link =>
+                link.addEventListener('click', () => navCheck.checked = false)); 
+        })();
+    </script>
 </body>
 
 </html>
