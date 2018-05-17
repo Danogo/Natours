@@ -11,6 +11,10 @@ function scrollIt(element) {
         exactPosition = 250;
     } else if (element.id === 'section-features') {
         exactPosition = -90;
+    } else if (element.id === 'section-book') { 
+        exactPosition = -65;
+    } else if (element.id === 'section-stories') { 
+        exactPosition = 110;
     } else {
         exactPosition = 0;
     }

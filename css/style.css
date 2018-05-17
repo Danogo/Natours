@@ -1,3 +1,22 @@
+/*
+0      - 600px    Phones
+600px  - 900px    Tablets portrait
+900px  - 1200px   Tablets landscape
+1200px - 1800px   ---------------- default styles apply
+1800px +          Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-d
+*/
+/* ====info =======
+We are not using pixels in media queries to bind our breakpoints to user browser's font-size in case if he changes it
+Relative units (e.g. rem, em) in media queries are always related to browser default font-size (usually 16px)
+Even if we change font-size in html it doesn't affect units in media queries
+We use ems over rems, because rems don't work correctly in all browsers
+*/
 @keyframes moveRight {
   0% {
     opacity: 0;
@@ -35,6 +54,15 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
