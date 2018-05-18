@@ -11,6 +11,15 @@
     // somehow b-v:h  fixes bug with transforming during hovering other elements like heading or button but makes text blurred
     // backface-visibility: hidden;
 
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem 4rem 4rem 7rem;
+    }
+
+    @include respond(phone) {
+        transform: skewX(0);
+    }
+
     &__shape {
         //element has to have defined dimensions in order to make shape-outside work
         height: 15rem;
@@ -25,6 +34,10 @@
         // to give space between floated elements better use transform:translate instead of margin 
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(0);
+        }
     }
 
     &__img {
@@ -39,6 +52,9 @@
     
     &__text {
         transform: skewX(12deg);
+        @include respond(phone) {
+            transform: skewX(0);
+        }
     }
     
     &__caption {

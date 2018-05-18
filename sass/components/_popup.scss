@@ -29,6 +29,16 @@
         //repeating translate here, because this transform overwrites that from the mixin
         transform: translate(-50%, -50%) scale(0);
         transition: all .6s .2s;
+
+        @include respond(tab-port) {
+            flex-flow: column wrap;
+            height: 80vh;
+        }
+
+        //somehow making text less fuzzy
+        @include respond(phone) {
+            overflow: initial;
+        }
     }
 
     &__left {
@@ -36,8 +46,16 @@
         // width: calc(100% * (1/3));
         // display: table-cell;
         display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-between;
+        flex-flow: column wrap;
+
+        @include respond(tab-port) {
+            flex-flow: row nowrap;
+            flex: 2;
+        }
+
+        @include respond(phone) {
+            flex: 1;
+        }
     }
     
     &__right {
@@ -47,12 +65,22 @@
         // vertical-align: middle;
         padding: 3rem 5rem;
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: row wrap;
         justify-content: center;
         background-color: $color-white;
         
         a {
             align-self: flex-start;
+        }
+
+        @include respond(tab-port) {
+            flex: 3;
+            flex-direction: row;
+        }
+
+        @include respond(phone) {
+            padding: 2rem 2rem;
+            overflow-y: scroll;
         }
 
     }
@@ -61,6 +89,10 @@
         max-width: 100%;
         flex: 1;
         object-fit: cover;
+
+        @include respond(tab-port) {
+            max-width: 50%;
+        }
     }
     
     &__text {
@@ -79,6 +111,18 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto;
+
+        @include respond(tab-port) {
+            -moz-column-count: 1;
+            column-count: 1;
+            padding: 0 4rem 4rem 4rem;
+        }
+
+        @include respond(phone) {
+            -moz-column-count: 1;
+            column-count: 1;
+            padding: 0 2rem 2rem 2rem;
+        }
     }
 
     // SHOW POPUP
