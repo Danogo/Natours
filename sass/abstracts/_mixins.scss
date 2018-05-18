@@ -36,6 +36,8 @@ Even if we change font-size in html it doesn't affect units in media queries
 We use ems over rems, because rems don't work correctly in all browsers
 */
 
+// implementing ORDER: base + typography -> general layout + grid -> page layout -> components
+
 // MQuery mixin with @if drective, 1em = 16px => breakpoint[px]/16 = breakpoint[em]
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
@@ -52,6 +54,21 @@ We use ems over rems, because rems don't work correctly in all browsers
     }
 }
 
+//ANOTHER METHOD with map
+
+// store breakpoints in a map
+$breakpoints: (
+    sm: 37.5em,
+    md: 56.25em,
+    lg: 75em,
+);
+ 
+// mixin :: Size (sm, md, lg)
+@mixin break($size) {
+ 
+    // map over breakpoints and use value of passed in size
+    @media screen and (max-width: map-get($breakpoints, size)) { @content; } //using map-get to grab variables values
+}
 
 
 
