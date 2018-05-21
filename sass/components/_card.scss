@@ -158,7 +158,10 @@
         font-weight: 100;
     }
 
-    @include respond(tab-port) {
+    //custom media query allowing to show whole card(front and back) for "non-hovering" mobile devices
+    // @include respond(tab-port) {
+    @media only screen and (max-width: 56.25em),
+    only screen and (hover: none) {
         //only one side card, therefore no need to force same size on both sides using defined value
         height: auto;
         border-radius: $border-radius-small;

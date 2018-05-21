@@ -41,20 +41,20 @@ We use ems over rems, because rems don't work correctly in all browsers
 // MQuery mixin with @if drective, 1em = 16px => breakpoint[px]/16 = breakpoint[em]
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
-        @media (max-width: 37.5em) { @content; } //600px
+        @media only screen and (max-width: 37.5em) { @content; } //600px
     }
     @if $breakpoint == tab-port {
-        @media (max-width: 56.25em) { @content; } //900px
+        @media only screen and (max-width: 56.25em) { @content; } //900px
     }
     @if $breakpoint == tab-land {
-        @media (max-width: 75em) { @content; } //1200px
+        @media only screen and (max-width: 75em) { @content; } //1200px
     }
     @if $breakpoint == big-d {
-        @media (min-width: 112.5em) { @content; } //1800px
+        @media only screen and (min-width: 112.5em) { @content; } //1800px
     }
 }
 
-//ANOTHER METHOD with map
+//ANOTHER METHOD with map, not used in this project
 
 // store breakpoints in a map
 $breakpoints: (

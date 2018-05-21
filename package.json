@@ -7,7 +7,7 @@
     "compile-dev:sass": "node-sass sass/main.scss css/style.css",
     "watch:sass": "nodemon -e scss -x \"npm run compile-dev:sass\"",
     "devserver": "live-server",
-    "start": "npm-run-all --parallel devserver watch:sass",
+    "start:dev": "npm-run-all --parallel devserver watch:sass",
 
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
     "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
