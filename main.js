@@ -2,6 +2,8 @@
 const scrollBtnsSmooth = document.querySelectorAll('.js-scrollBtn');
 const scrollBtnsInstant = document.querySelectorAll('.js-scrollBtnI');
 const sectionTours = document.querySelector('.js-sectionTours');
+// cached navigation on/off switcher
+const navCheck = document.querySelector('#navi-toggle');
 
 // SCROLLING LOGIC
 function scrollIt(element) {
@@ -52,7 +54,7 @@ function scrollItInstant(element) {
 //EVENT LISTENERS
 scrollBtnsSmooth.forEach(btn => {
     btn.addEventListener('click', evt => {
-        //prevent deafult behavior of link
+        //prevent default behavior of link
         evt.preventDefault();
         //cache target DOM node depending on his href
         //every btn has href equal to adequate section's id
@@ -65,6 +67,9 @@ scrollBtnsSmooth.forEach(btn => {
 scrollBtnsInstant.forEach(btn => {
     btn.addEventListener('click', evt => {
         evt.preventDefault();
+        //hiding navigation
+        navCheck.checked = false;
+        //grabing scroll target
         let scrollTarget = document.querySelector(evt.currentTarget.getAttribute('href'));
         scrollItInstant(scrollTarget);
     });

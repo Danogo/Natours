@@ -26,14 +26,20 @@
         width: 15rem;
         // element also must be floated in order to make shape-outside work
         float: left;
-        // shape-outside defines how the content around floats the element, here the shape is circle(radius at x y)
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
         // to give space between floated elements better use transform:translate instead of margin 
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+
+        @supports (-webkit-clip-path: circle(0 at 0 0)) or (clip-path: circle(0 at 0 0)) {
+            // shape-outside defines how the content around floats the element, here the shape is circle(radius at x y)
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            border-radius: 0;
+        }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
@@ -44,6 +50,7 @@
         height: 100%;
         transform: translateX(-4rem) scale(1.4);
         //solution to shaking picture
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         //seperate transitions to avoid flickering picture glitch
         transition: filter .5s;
@@ -69,6 +76,7 @@
         opacity: 0;
         transition: all .5s;
         //solution to shaking caption
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
     

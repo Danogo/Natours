@@ -88,6 +88,7 @@ body {
     letter-spacing: 3.5rem;
     padding-left: 3.5rem;
     animation: moveRight 1s ease-out;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
     @media (max-width: 37.5em) {
       .heading-primary--main {
@@ -101,6 +102,7 @@ body {
     letter-spacing: 1.75rem;
     padding-left: 1.75rem;
     animation: moveLeft 1s ease-out;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
     @media (max-width: 37.5em) {
       .heading-primary--sub {
@@ -113,12 +115,15 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #55c57a;
   letter-spacing: .2rem;
   transition: all .2s; }
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .heading-secondary {
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(to right, #7ed56f, #28b485);
+      color: transparent; } }
   @media (max-width: 56.25em) {
     .heading-secondary {
       font-size: 3rem; } }
@@ -447,10 +452,13 @@ body {
     font-size: 6rem;
     margin-bottom: .5rem;
     display: inline-block;
-    background-image: linear-gradient(to right, #7ed56f, #28b485);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; }
+    color: #55c57a; }
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+      .feature-box__icon {
+        color: transparent;
+        background-image: linear-gradient(to right, #7ed56f, #28b485);
+        -webkit-background-clip: text;
+        background-clip: text; } }
     @media (max-width: 56.25em) {
       .feature-box__icon {
         margin-bottom: 0; } }
@@ -674,18 +682,24 @@ body {
     height: 15rem;
     width: 15rem;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
-    position: relative; }
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%; }
+    @supports (-webkit-clip-path: circle(0 at 0 0)) or (clip-path: circle(0 at 0 0)) {
+      .story__shape {
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        border-radius: 0; } }
     @media (max-width: 37.5em) {
       .story__shape {
         transform: translateX(-3rem) skewX(0); } }
   .story__img {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: filter .5s;
     transition: transform .5s; }
@@ -705,6 +719,7 @@ body {
     text-align: center;
     opacity: 0;
     transition: all .5s;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
   .story:hover .story__caption {
     opacity: 1;
@@ -813,13 +828,19 @@ body {
     width: calc(3 * ((100% - 3 * 6rem) / 4) + (6rem * 2)); }
 
 .header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  height: 85vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
-  position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  position: relative; }
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh; } }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg"); } }
   @media (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
